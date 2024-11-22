@@ -31,11 +31,21 @@ method to me, even though some people are against putting logic into their model
 pkg.
 
 # Package breakdown
-main - houses the server creation and routing setup logic
-api - houses the controllers called by the routers and handles request/response logic
-model - houses the data model and the Receipt business logic that calls the helpers
-        and calculates the reward points for the Receipt
-store - houses the singleton storage solution, its init and getter, and the methods 
-        used to get/store Receipts in the underlying map
-utils - houses the methods that parse different strings to generate points or determine
-        a condition that, in turn, determines if points should be awarded
+
+## main
+houses the server creation and routing setup logic
+
+## api
+houses the controllers called by the routers and handles request/response logic
+
+## model 
+houses the data model and the Receipt business logic that calls the helpers and 
+calculates the reward points for the Receipt
+
+## store 
+houses the singleton storage solution, its init and getter, and the methods used
+to get/store Receipts in the underlying map
+
+## utils
+houses the methods that parse different strings to generate points or determine 
+a condition that, in turn, determines if points should be awarded

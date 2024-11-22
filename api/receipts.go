@@ -19,7 +19,7 @@ func ProcessReceipt(c echo.Context) error {
 	var receipt model.Receipt
 	err := c.Bind(&receipt)
 	if err != nil {
-		return c.JSON(http.StatusBadRequest, ErrorDecodingBody{error: err.Error()})
+		return c.JSON(http.StatusBadRequest, ErrorDecodingBody{Message: err.Error()})
 	}
 
 	receiptStore.StoreReceipt(id, receipt)
@@ -37,7 +37,7 @@ func GetPoints(c echo.Context) error {
 	receiptStore := store.GetStore()
 	receipt, err := receiptStore.GetReceipt(id)
 	if err != nil {
-		return c.JSON(http.StatusNotFound, "{}")
+		return c.JSON(http.StatusNotFound, ErrorNotFound{Message: err.Error()})
 	}
 
 	return c.JSON(http.StatusOK, PointsResponse{Points: receipt.Rewards()})

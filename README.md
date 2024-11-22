@@ -6,12 +6,12 @@ from the root directory run `go build && ./fetch-receipt-processor`
 it will be accessible at `http://localhost:1323`
 
 # Choices I made
-I utilized [Echo]("https://echo.labstack.com/") as my web framework here. I've
+I utilized [Echo](https://echo.labstack.com/) as my web framework here. I've
 found it to be pretty lightweight, easy to setup, easy to use, and it has some
 nice utilities built in so I reach for it to avoid reinventing the wheel for
 most things web server setup related (routing, parsing params/request bodies, etc)
 
-I used [Google's uuid pkg]("https://github.com/google/uuid") to generate the ids
+I used [Google's uuid pkg](https://github.com/google/uuid) to generate the ids
 for my in memory store (simply implemented as a global `map[string]Receipt`). This
 is a well trusted and tested package, and again pretty lightweight to remove the
 need to come up with a potentially more fragile uuid generation scheme.

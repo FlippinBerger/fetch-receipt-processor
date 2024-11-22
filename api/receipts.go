@@ -9,7 +9,7 @@ import (
 )
 
 type ProcessResponse struct {
-	id string
+	ID string `json:"id"`
 }
 
 func ProcessReceipt(c echo.Context) error {
@@ -24,11 +24,11 @@ func ProcessReceipt(c echo.Context) error {
 
 	receiptStore.StoreReceipt(id, receipt)
 
-	return c.JSON(http.StatusOK, ProcessResponse{id: id})
+	return c.JSON(http.StatusOK, ProcessResponse{ID: id})
 }
 
 type PointsResponse struct {
-	points int
+	Points int `json:"points"`
 }
 
 func GetPoints(c echo.Context) error {
@@ -40,5 +40,5 @@ func GetPoints(c echo.Context) error {
 		return c.JSON(http.StatusNotFound, "{}")
 	}
 
-	return c.JSON(http.StatusOK, PointsResponse{points: receipt.Rewards()})
+	return c.JSON(http.StatusOK, PointsResponse{Points: receipt.Rewards()})
 }
